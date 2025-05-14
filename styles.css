@@ -1,0 +1,431 @@
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Theme Variables */
+:root {
+    /* Default Theme */
+    --primary-color: #4a6fa5;
+    --secondary-color: #166088;
+    --accent-color: #4fc3f7;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+}
+
+/* Dark Theme */
+.theme-dark {
+    --primary-color: #3a506b;
+    --secondary-color: #1c2541;
+    --accent-color: #5bc0be;
+    --background-color: #0b132b;
+    --card-background: #1c2541;
+    --text-color: #e0e0e0;
+    --border-color: #3a506b;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --success-color: #66bb6a;
+    --warning-color: #ffa726;
+    --danger-color: #ef5350;
+}
+
+/* Colorful Theme */
+.theme-colorful {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --background-color: #f7fff7;
+    --card-background: #ffffff;
+    --text-color: #292f36;
+    --border-color: #4ecdc4;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --success-color: #06d6a0;
+    --warning-color: #ffd166;
+    --danger-color: #ef476f;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    padding-bottom: 2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.theme-btn {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.theme-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form Styles */
+.add-habit-container {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: block;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Custom Days Input */
+#custom-days-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#custom-days-container input {
+    width: 80px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Habits List */
+.habits-container {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.habits-filter {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--card-background);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.habit-item {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+.habit-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.habit-info {
+    flex: 1;
+}
+
+.habit-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.habit-repeat {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    opacity: 0.8;
+}
+
+.habit-status {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.status-due {
+    color: var(--warning-color);
+}
+
+.status-completed {
+    color: var(--success-color);
+}
+
+.status-upcoming {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.habit-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    padding: 0.3rem;
+}
+
+.action-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.complete-btn {
+    color: var(--success-color);
+}
+
+.info-btn {
+    color: var(--primary-color);
+}
+
+.delete-btn {
+    color: var(--danger-color);
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+.modal-details {
+    margin-top: 1.5rem;
+}
+
+#modal-notes-container {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 5px;
+}
+
+#history-list {
+    margin-top: 1rem;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.history-date {
+    font-weight: 500;
+}
+
+.history-status {
+    font-weight: 500;
+}
+
+.history-completed {
+    color: var(--success-color);
+}
+
+.history-missed {
+    color: var(--danger-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .theme-switcher {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .theme-btn {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.8rem;
+    }
+    
+    .habit-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .habit-actions {
+        margin-top: 1rem;
+        align-self: flex-end;
+    }
+}

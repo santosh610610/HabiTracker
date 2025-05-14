@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="theme-default">
+    <div class="theme-switcher">
+        <button id="theme-default" class="theme-btn active"><i class="fas fa-circle"></i> Default</button>
+        <button id="theme-dark" class="theme-btn"><i class="fas fa-moon"></i> Dark</button>
+        <button id="theme-colorful" class="theme-btn"><i class="fas fa-palette"></i> Colorful</button>
+    </div>
+
+    <div class="container">
+        <h1>Habit Tracker</h1>
+        
+        <div class="add-habit-container">
+            <h2>Add New Habit</h2>
+            <form id="habit-form">
+                <div class="form-group">
+                    <label for="habit-name">Habit Name:</label>
+                    <input type="text" id="habit-name" required placeholder="e.g., Drink water">
+                </div>
+                
+                <div class="form-group">
+                    <label for="repeat-interval">Repeat:</label>
+                    <select id="repeat-interval" required>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="custom">Custom (days)</option>
+                    </select>
+                    <div id="custom-days-container" class="hidden">
+                        <input type="number" id="custom-days" min="1" max="365" value="1">
+                        <span>days</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="habit-notes">Notes (optional):</label>
+                    <textarea id="habit-notes" placeholder="Add any additional notes here..."></textarea>
+                </div>
+                
+                <button type="submit" class="btn-primary">Add Habit</button>
+            </form>
+        </div>
+        
+        <div class="habits-container">
+            <h2>Your Habits</h2>
+            <div class="habits-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="due">Due Today</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <div id="habits-list">
+                <!-- Habits will be added here dynamically -->
+                <div class="empty-state">
+                    <i class="fas fa-seedling empty-icon"></i>
+                    <p>No habits added yet. Start by adding a new habit above!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Habit Details Modal -->
+    <div id="habit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-habit-name"></h2>
+            <div class="modal-details">
+                <p><strong>Repeat:</strong> <span id="modal-repeat"></span></p>
+                <div id="modal-notes-container">
+                    <p><strong>Notes:</strong></p>
+                    <p id="modal-notes"></p>
+                </div>
+                <div id="modal-history">
+                    <h3>History</h3>
+                    <div id="history-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
